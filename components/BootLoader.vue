@@ -13,10 +13,10 @@
       <!-- Header -->
       <div class="text-center mb-8">
         <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-[0.3em] mb-3 text-gradient">
-          FRONTEND NEXUS
+          MAHMUDUL HASAN
         </h1>
         <p class="text-cyan-400 text-sm sm:text-base tracking-[0.2em] font-light">
-          UI Engineering Command Interface
+          Web Designer and Developer
         </p>
       </div>
 

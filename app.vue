@@ -217,7 +217,7 @@
 
       <!-- RIGHT: Email -->
       <div
-        class="hidden md:block absolute right-[-75px] mr-[25rem] top-1/2 -translate-y-1/2 rotate-90 origin-right text-sm text-white/70 tracking-wider"
+        class="hidden md:block absolute right-6 top-[65%] mr-[19rem] -translate-y-1/2 rotate-90 origin-right text-sm text-white/70 tracking-wider"
       >
         dev.mahmudulhasan2@gmail.com
       </div>
@@ -271,7 +271,7 @@
         <div class="flex flex-wrap gap-4 justify-center mt-8">
           <a
             href="#contact-me"
-            class="inline-block px-6 py-2.5 lg:px-8 lg:py-3.5 rounded-full border border-pink-500 bg-gradient-to-r from-sky-400 to-pink-500 text-black font-semibold hover:scale-105 active:scale-105 transition shadow-lg cursor-pointer"
+            class="inline-block px-6 py-2.5 lg:px-8 lg:py-3.5 rounded-full border border-pink-500 bg-gradient-to-r from-pink-500 via-pink-600 to-purple-600 text-white font-semibold hover:scale-105 active:scale-105 transition shadow-lg cursor-pointer"
           >
             Get in Touch
           </a>
@@ -303,14 +303,7 @@
     <!-- End Hero Section -->
 
     <!-- My project section start -->
-    <section id="my-recent-project" class="relative py-12 px-6 overflow-hidden">
-      <!-- Background blur elements -->
-      <div
-        class="absolute -top-40 -left-40 w-[400px] h-[400px] bg-cyan-400/10 blur-[100px] rounded-full"
-      ></div>
-      <div
-        class="absolute -bottom-40 -right-40 w-[400px] h-[400px] bg-purple-300/10 blur-[100px] rounded-full"
-      ></div>
+    <section id="my-recent-project" class="relative py-8 px-6 overflow-hidden">
 
       <div class="text-center mb-12 relative z-10">
         <h2 class="text-3xl md:text-4xl font-bold text-center mb-6">
@@ -323,8 +316,8 @@
       </div>
 
       <!-- Grid Layout with Laptop Mockups -->
-      <div class="relative max-w-7xl mx-auto px-4 md:px-6 lg:px-8 z-10">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="relative max-w-6xl mx-auto px-4 md:px-6 lg:px-8 z-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <!-- Project Card with Laptop Mockup -->
           <div
             v-for="(project, index) in projects"
@@ -333,7 +326,7 @@
           >
             <!-- Laptop Mockup Container -->
             <div
-              class="laptop-mockup relative rounded-2xl bg-gradient-to-br from-[#1a1a2e]/95 via-[#16162a]/95 to-[#0f0f1e]/95 backdrop-blur-md p-5 border-2 border-purple-500/20 hover:border-purple-500/60 active:border-purple-500/60 transition-all duration-500 shadow-lg shadow-purple-500/10 hover:shadow-2xl hover:shadow-purple-500/30 active:shadow-2xl active:shadow-purple-500/30 hover:scale-[1.02] active:scale-[1.02] cursor-pointer"
+              class="laptop-mockup relative rounded-xl bg-gradient-to-br from-[#1a1a2e]/95 via-[#16162a]/95 to-[#0f0f1e]/95 backdrop-blur-md p-4 border-2 border-purple-500/20 hover:border-purple-500/60 active:border-purple-500/60 transition-all duration-500 shadow-lg shadow-purple-500/10 hover:shadow-2xl hover:shadow-purple-500/30 active:shadow-2xl active:shadow-purple-500/30 hover:scale-[1.02] active:scale-[1.02] cursor-pointer h-full flex flex-col"
             >
               <!-- Laptop Frame -->
               <div class="laptop-frame relative mb-4">
@@ -374,19 +367,19 @@
               </div>
 
               <!-- Project Info Below Laptop -->
-              <div class="space-y-3">
+              <div class="space-y-3 flex-1 flex flex-col">
                 <!-- Project Title -->
                 <h3 class="text-xl font-bold" :class="project.titleColor">
                   {{ project.title }}
                 </h3>
 
                 <!-- Project Description -->
-                <p class="text-sm text-gray-300 leading-relaxed line-clamp-3">
+                <p class="text-sm text-gray-300 leading-relaxed">
                   {{ project.description }}
                 </p>
 
                 <!-- Technologies -->
-                <div class="flex flex-wrap gap-2">
+                <div class="flex flex-wrap gap-2 mt-auto">
                   <span
                     v-for="(tech, techIndex) in project.technologies"
                     :key="techIndex"
@@ -395,31 +388,31 @@
                     {{ tech }}
                   </span>
                 </div>
+                
+                <!-- Action Buttons -->
+                <div class="flex gap-3 mt-4">
+                  <a
+                    :href="project.live"
+                    target="_blank"
+                    class="flex-1 px-4 py-2 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 text-white text-sm font-semibold hover:scale-105 active:scale-105 transition-all duration-300 text-center"
+                    @click.stop
+                  >
+                    Live Preview
+                  </a>
+                  <a
+                    v-if="project.github"
+                    :href="project.github"
+                    target="_blank"
+                    class="flex-1 px-4 py-2 rounded-lg bg-gray-800 border border-white/20 text-white text-sm font-semibold hover:bg-gray-700 hover:scale-105 active:scale-105 transition-all duration-300 text-center flex items-center justify-center gap-2"
+                    @click.stop
+                  >
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 0C5.37 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 11.387.6.111.82-.261.82-.579 0-.285-.01-1.04-.015-2.04-3.338.726-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.744.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.419-1.305.762-1.605-2.665-.304-5.466-1.334-5.466-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.52 11.52 0 0 1 3.004-.404 11.48 11.48 0 0 1 3.003.404c2.293-1.552 3.3-1.23 3.3-1.23.655 1.653.243 2.873.119 3.176.77.84 1.235 1.91 1.235 3.221 0 4.609-2.804 5.624-5.475 5.921.43.372.823 1.103.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .32.216.694.825.576C20.565 21.796 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    GitHub
+                  </a>
+                </div>
               </div>
-
-              <!-- Live View Icon - Top Right of Card -->
-              <a
-                :href="project.live"
-                target="_blank"
-                class="absolute top-4 right-4 p-2 rounded-lg bg-purple-600/20 backdrop-blur-md border border-purple-500/40 hover:bg-purple-600 hover:border-purple-500 transition-all duration-300 group/icon"
-                title="View Live"
-                @click.stop
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-4 w-4 text-purple-300 group-hover/icon:text-white transition-all group-hover/icon:scale-110"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                  />
-                </svg>
-              </a>
             </div>
           </div>
         </div>
@@ -431,7 +424,7 @@
     <!-- tools section start -->
     <section
       id="tools-i-use"
-      class="mt-12 bg-black-500 py-12 px-6"
+      class="mt-6 bg-black-500 py-8 px-6"
     >
       <h2
         class="text-3xl md:text-4xl font-bold text-center mb-4 sm:mb-5 md:mb-6"
@@ -1492,8 +1485,8 @@
     <!-- tools section end -->
 
     <!-- skills section start-->
-    <section id="skills" class="mt-12 py-12 bg-black-100">
-      <div class="container mx-auto mb-2 px-2 max-w-7xl relative">
+    <section id="skills" class="mt-4 py-8 bg-black-100">
+      <div class="container mx-auto mb-2 px-2 max-w-6xl relative">
         <h2 class="text-3xl md:text-4xl font-bold text-center mb-10" style="margin-top: -10px;">
           My
           <span
@@ -1501,11 +1494,11 @@
             >skills</span
           >
         </h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div
             class="rounded-lg border text-card-foreground shadow-lg shadow-blue-700/30 backdrop-blur-md border-primary/20 hover:bg-black/30 transition-all duration-300 group relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-purple-500/10 before:via-transparent before:to-transparent before:opacity-0 hover:before:opacity-100 before:transition-opacity"
           >
-            <div class="p-6 pt-8 relative">
+            <div class="p-5 pt-6 relative">
               <div class="flex flex-col items-center text-center">
                 <div class="relative">
                   <div
@@ -1566,7 +1559,7 @@
           <div
             class="rounded-lg border text-card-foreground shadow-lg shadow-blue-700/30 bg-black/20 backdrop-blur-md border-primary/20 hover:bg-black/30 transition-all duration-300 group relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-green-500/10 before:via-transparent before:to-transparent before:opacity-0 hover:before:opacity-100 before:transition-opacity"
           >
-            <div class="p-6 pt-8 relative">
+            <div class="p-5 pt-6 relative">
               <div class="flex flex-col items-center text-center">
                 <div class="relative">
                   <div
@@ -1616,7 +1609,7 @@
           <div
             class="rounded-lg border text-card-foreground shadow-lg shadow-blue-700/30 bg-black/20 backdrop-blur-md border-primary/20 hover:bg-black/50 transition-all duration-300 group relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-500/10 before:via-transparent before:to-transparent before:opacity-0 hover:before:opacity-100 before:transition-opacity"
           >
-            <div class="p-6 pt-8 relative">
+            <div class="p-5 pt-6 relative">
               <div class="flex flex-col items-center text-center">
                 <div class="relative">
                   <div
@@ -1685,7 +1678,7 @@
 
     <!-- about section start -->
 
-    <section id="about" class="py-12 text-white">
+    <section id="about" class="py-8 text-white">
       <h2 class="text-3xl md:text-4xl mb-6 md:mb-8 font-bold text-center">
         About
         <span
@@ -1693,12 +1686,12 @@
           >Me
         </span>
       </h2>
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Content Grid with Border -->
         <div
-          class="border border-purple-500/30 rounded-2xl p-6 md:p-10 shadow-xl shadow-purple-500/20 bg-gradient-to-br from-gray-900/40 to-transparent backdrop-blur-sm hover:border-purple-500/50 transition-all duration-300"
+          class="border border-purple-500/30 rounded-2xl p-5 md:p-8 shadow-xl shadow-purple-500/20 bg-gradient-to-br from-gray-900/40 to-transparent backdrop-blur-sm hover:border-purple-500/50 transition-all duration-300"
         >
-          <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+          <div class="grid md:grid-cols-2 gap-6 md:gap-10 items-center">
             <!-- Left Section (As is) -->
             <div class="space-y-4 h-full">
               <!-- Education -->
@@ -1731,7 +1724,7 @@
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                             </svg>
                             Government Polytechnic Institute, Bogura
-                          </p>
+                          </p> 
                         </div>
                         <span class="inline-block px-4 py-1 rounded-full bg-white text-black text-xs font-bold whitespace-nowrap self-start md:self-auto">2019 - 2024</span>
                       </div>
@@ -1753,7 +1746,7 @@
                         <h4 class="text-lg font-bold text-white leading-tight">
                           Web Design & Development
                         </h4>
-                        <span class="inline-block px-4 py-1 rounded-full bg-white text-black text-xs font-bold whitespace-nowrap">2022 – 2025</span>
+                        <span class="inline-block px-4 py-1 rounded-full bg-white text-black text-xs font-bold whitespace-nowrap">2022 –  Current</span>
                       </div>
                       
                       <!-- Achievement List -->
@@ -2251,7 +2244,7 @@ const skills = [
   },
   {
     name: "Canva",
-    icon: "https://cdn.simpleicons.org/canva/00C4CC",
+    icon: "https://upload.wikimedia.org/wikipedia/commons/0/08/Canva_icon_2021.svg",
   },
 ];
 
@@ -2383,57 +2376,59 @@ const projects = ref([
     title: "ONLINE.COM",
     titleColor: "text-purple-400",
     image: "/image/MH-Online.com1.png",
-    description:
-      "A full-featured e-commerce platform with modern UI, product catalog, shopping cart, and checkout functionality.",
+    description: "Full-featured e-commerce platform with modern UI",
     technologies: ["Nuxt.js", "TailwindCSS", "JavaScript", "API"],
     live: "https://shoppinginonline.netlify.app/",
+    github: "https://github.com/mahmudul7608",
   },
   {
     title: "AI-powered idea generator",
     titleColor: "text-orange-400",
     image: "/image/MH-ai-idea.genare.png",
-    description:
-      "API-powered image search application with real-time results and responsive grid layout.",
+    description: "AI-powered idea generation with real-time results",
     technologies: ["API", "Nuxt.js", "JavaScript", "TailwindCSS"],
     live: "https://ai-powered-idea-generator.netlify.app/",
+    github: "https://github.com/mahmudul7608",
   },
   {
     title: "SaladMenu.ai",
     titleColor: "text-pink-400",
     image: "/image/MH-SaladMenu.png",
-    description:
-      "Interactive restaurant menu application with dynamic ordering system and beautiful animations.",
+    description: "Interactive restaurant menu with dynamic ordering",
     technologies: ["Nuxt.js", "TailwindCSS", "JavaScript","API"],
     live: "https://onlineorder-saladmenu.netlify.app/",
+    github: "https://github.com/mahmudul7608",
   },
   {
     title: "AI-powered-trip-planner",
     titleColor: "text-green-400",
     image: "/image/MH-ai-tour-planner.png",
-    description:
-      "AI-powered trip planner application with personalized itineraries and travel recommendations.",
+    description: "AI trip planner with personalized itineraries",
     technologies: ["Nuxt.js", "TailwindCSS", "JavaScript","API"],
     live: "https://new-ai-trip-planner-web.netlify.app/",
+    github: "https://github.com/mahmudul7608",
   },
   {
     title: "5 Star Hotel Booking",
     titleColor: "text-cyan-400",
     image: "/image/Mh-hotel-booking.png",
-    description:
-      "Professional hotel booking website with elegant design and seamless user experience.",
+    description: "Professional hotel booking with elegant design",
     technologies: ["Nuxt.js", "TailwindCSS", "API", "JavaScript"],
     live: "https://exquisite-kashata-37b72f.netlify.app/",
+    github: "https://github.com/mahmudul7608",
   },
   {
     title: "AI-PoweredDesign",
     titleColor: "text-yellow-400",
     image: "/image/MH-Ai-powered.png",
-    description:
-      "Modern AI-powered design showcase with stunning visual effects and smooth user experience.",
+    description: "Modern AI design showcase with stunning effects",
     technologies: ["Nuxt.js", "TailwindCSS", "JavaScript", "API"],
     live: "https://mh-ai-powered-design.netlify.app/",
+    github: "https://github.com/mahmudul7608",
   },
 ]);
+
+// Projects display - showing all 6 projects by default
 </script>
 
 <style scoped>
