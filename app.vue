@@ -1705,9 +1705,9 @@
 
               <!-- Education -->
               <div>
-                <h3 class="text-2xl md:text-3xl font-bold mb-6 flex items-center gap-3">
+                <h3 class="text-2xl md:text-3xl font-bold mb-6 flex items-center gap-4">
                   <span class="p-2 bg-gray-800 rounded-lg border border-white/10">
-                    <svg class="w-6 h-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg class="w-8 h-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
                       <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5" />
                     </svg>
@@ -1719,13 +1719,13 @@
                   <!-- Education Card -->
                   <div class="relative group">
                     <!-- Timeline Dot -->
-                    <div class="absolute -left-[41px] top-0 w-7 h-7 rounded-full border-2 border-white bg-gray-900 group-hover:scale-110 transition-transform duration-300"></div>
+                    <div class="absolute -left-[47px] top-0 w-7 h-7 rounded-full border-2 border-white bg-gray-900 group-hover:scale-110 transition-transform duration-300"></div>
                     
                     <div class="p-6 rounded-2xl bg-gray-900/50 border border-white/10 hover:border-purple-500/50 hover:bg-purple-500/5 transition-all duration-300 backdrop-blur-sm">
                       <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-2">
                         <div class="pl-4">
                           <h4 class="text-lg font-bold text-white leading-tight">Diploma in Engineering</h4>
-                          <p class="text-sm text-gray-400 mt-1 flex items-center gap-2">
+                          <p class="text-sm text-gray-400 mt-3 flex items-center gap-2">
                             <svg class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
@@ -1746,7 +1746,7 @@
                   <!-- Certification Card -->
                   <div class="relative group">
                     <!-- Timeline Dot -->
-                    <div class="absolute -left-[41px] top-0 w-7 h-7 rounded-full border-2 border-white bg-gray-900 group-hover:scale-110 transition-transform duration-300"></div>
+                    <div class="absolute -left-[47px] top-0 w-7 h-7 rounded-full border-2 border-white bg-gray-900 group-hover:scale-110 transition-transform duration-300"></div>
                     
                     <div class="p-6 rounded-2xl bg-gray-900/50 border border-white/10 hover:border-blue-500/50 hover:bg-blue-500/5 transition-all duration-300 backdrop-blur-sm">
                       <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-4">
