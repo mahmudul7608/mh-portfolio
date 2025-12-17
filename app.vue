@@ -1851,6 +1851,31 @@
           </h2>
         </div>
 
+        <!-- Success Alert -->
+        <div
+          v-if="showSuccessAlert"
+          class="mb-6 p-4 rounded-lg bg-green-500/20 border border-green-500/50 backdrop-blur-sm"
+        >
+          <div class="flex items-center gap-3">
+            <svg
+              class="w-6 h-6 text-green-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+            <p class="text-green-300 font-medium">
+              Message sent successfully! I'll get back to you soon.
+            </p>
+          </div>
+        </div>
+
         <!-- Form Card -->
         <div
           class="rounded-2xl border border-white/10 bg-gradient-to-br from-gray-900 shadow-lg shadow-cyan-500/20 backdrop-blur-md transition-all duration-500 hover:shadow-pink-500/30"
@@ -1859,7 +1884,12 @@
             <h3 class="text-2xl font-bold mb-8 text-center">
               Send me a message
             </h3>
-            <form class="space-y-8">
+            <form
+              action="https://formspree.io/f/xnneerav"
+              method="POST"
+              @submit="handleSubmit"
+              class="space-y-8"
+            >
               <!-- Full Name & Email -->
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Full Name -->
@@ -1870,6 +1900,7 @@
                   <input
                     type="text"
                     id="name"
+                    name="name"
                     placeholder="Enter your name"
                     required
                     class="w-full rounded-md border border-white/20 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/50 focus:outline-none focus:ring-1 focus:ring-pink-300 focus:ring-offset-1 focus:ring-offset-black/20 transition"
@@ -1884,6 +1915,7 @@
                   <input
                     type="email"
                     id="email"
+                    name="email"
                     placeholder="Enter your email"
                     required
                     class="w-full rounded-md border border-white/20 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/50 focus:outline-none focus:ring-1 focus:ring-pink-300 focus:ring-offset-1 focus:ring-offset-black/20 transition"
@@ -1899,6 +1931,7 @@
                 <input
                   type="text"
                   id="subject"
+                  name="subject"
                   placeholder="Enter subject line"
                   required
                   class="w-full rounded-md border border-white/20 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/50 focus:outline-none focus:ring-1 focus:ring-pink-300 focus:ring-offset-1 focus:ring-offset-black/20 transition"
@@ -1912,6 +1945,7 @@
                 >
                 <textarea
                   id="message"
+                  name="message"
                   placeholder="Enter your message"
                   required
                   class="w-full min-h-[150px] rounded-md border border-white/20 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/50 focus:outline-none focus:ring-1 focus:ring-pink-300 focus:ring-offset-1 focus:ring-offset-black/20 transition"
@@ -1921,7 +1955,8 @@
               <!-- Submit Button -->
               <button
                 type="submit"
-                class="w-full py-3 rounded-full text-white font-semibold text-base transition duration-300 hover:scale-[1.02] hover:shadow-lg"
+                :disabled="isSubmitting"
+                class="w-full py-3 rounded-full text-white font-semibold text-base transition duration-300 hover:scale-[1.02] hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
                 style="
                   background: linear-gradient(
                     112.49deg,
@@ -1930,7 +1965,7 @@
                   );
                 "
               >
-                Send Message
+                {{ isSubmitting ? 'Sending...' : 'Send Message' }}
               </button>
             </form>
           </div>
@@ -2080,6 +2115,50 @@ import { Home, User, Brain, Folder, Code, Mail, Book } from "lucide-vue-next";
 const bootComplete = ref(false);
 const onBootComplete = () => {
   bootComplete.value = true;
+};
+
+// Contact form state
+const isSubmitting = ref(false);
+const showSuccessAlert = ref(false);
+
+// Handle form submission
+const handleSubmit = async (event) => {
+  event.preventDefault();
+  isSubmitting.value = true;
+
+  const form = event.target;
+  const formData = new FormData(form);
+
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      // Show success alert
+      showSuccessAlert.value = true;
+      
+      // Reset form
+      form.reset();
+      
+      // Hide alert after 5 seconds
+      setTimeout(() => {
+        showSuccessAlert.value = false;
+      }, 5000);
+    } else {
+      console.error('Form submission failed');
+      alert('Failed to send message. Please try again.');
+    }
+  } catch (error) {
+    console.error('Error submitting form:', error);
+    alert('An error occurred. Please try again.');
+  } finally {
+    isSubmitting.value = false;
+  }
 };
 
 // Scroll progress bar
@@ -2373,7 +2452,7 @@ onBeforeUnmount(() => {
 
 const projects = ref([
   {
-    title: "ONLINE.COM",
+    title: "E-Commerce Online.com",
     titleColor: "text-purple-400",
     image: "/image/MH-Online.com1.png",
     description: "Full-featured e-commerce platform with modern UI",
@@ -2391,21 +2470,21 @@ const projects = ref([
     github: "https://github.com/mahmudul7608",
   },
   {
-    title: "SaladMenu.ai",
-    titleColor: "text-pink-400",
-    image: "/image/MH-SaladMenu.png",
-    description: "Interactive restaurant menu with dynamic ordering",
-    technologies: ["Nuxt.js", "TailwindCSS", "JavaScript","API"],
-    live: "https://onlineorder-saladmenu.netlify.app/",
-    github: "https://github.com/mahmudul7608",
-  },
-  {
     title: "AI-powered-trip-planner",
     titleColor: "text-green-400",
     image: "/image/MH-ai-tour-planner.png",
     description: "AI trip planner with personalized itineraries",
     technologies: ["Nuxt.js", "TailwindCSS", "JavaScript","API"],
     live: "https://new-ai-trip-planner-web.netlify.app/",
+    github: "https://github.com/mahmudul7608",
+  },
+  {
+    title: "Online SaladMenu",
+    titleColor: "text-pink-400",
+    image: "/image/MH-SaladMenu.png",
+    description: "Interactive restaurant menu with dynamic ordering",
+    technologies: ["Nuxt.js", "TailwindCSS", "JavaScript","API"],
+    live: "https://onlineorder-saladmenu.netlify.app/",
     github: "https://github.com/mahmudul7608",
   },
   {
