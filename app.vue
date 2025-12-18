@@ -1706,7 +1706,7 @@
                   <!-- Education Card -->
                   <div class="relative group">
                     <!-- Timeline Dot -->
-                    <div class="absolute -left-[45px] top-0 w-5 h-5 rounded-full border-2 border-white bg-gray-900 group-hover:scale-110 transition-transform duration-300"></div>
+                    <div class="absolute -left-[43px] top-0 w-5 h-5 rounded-full border-2 border-white bg-gray-900 group-hover:scale-110 transition-transform duration-300"></div>
                     
                     <div class="p-6 rounded-2xl bg-gray-900/50 border border-white/10 hover:border-purple-500/50 hover:bg-purple-500/5 transition-all duration-300 backdrop-blur-sm">
                       <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-2">
@@ -1733,7 +1733,7 @@
                   <!-- Certification Card -->
                   <div class="relative group">
                     <!-- Timeline Dot -->
-                    <div class="absolute -left-[45px] top-0 w-5 h-5 rounded-full border-2 border-white bg-gray-900 group-hover:scale-110 transition-transform duration-300"></div>
+                    <div class="absolute -left-[43px] top-0 w-5 h-5 rounded-full border-2 border-white bg-gray-900 group-hover:scale-110 transition-transform duration-300"></div>
                     
                     <div class="p-6 rounded-2xl bg-gray-900/50 border border-white/10 hover:border-blue-500/50 hover:bg-blue-500/5 transition-all duration-300 backdrop-blur-sm">
                       <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-4">
@@ -2452,7 +2452,7 @@ const projects = ref([
     description: "Full-featured e-commerce platform with modern UI, seamless shopping experience, and secure payment integration",
     technologies: ["Nuxt.js", "TailwindCSS", "JavaScript", "API"],
     live: "https://shoppinginonline.netlify.app/",
-    github: "https://github.com/mahmudul7608",
+    github: "https://github.com/mahmudul7608/Online.com",
   },
   {
     title: "AI-powered idea generator",
@@ -2461,7 +2461,7 @@ const projects = ref([
     description: "AI-powered idea generation with real-time results, creative solutions, and intelligent recommendations for your projects",
     technologies: ["API", "Nuxt.js", "JavaScript", "TailwindCSS"],
     live: "https://ai-powered-idea-generator.netlify.app/",
-    github: "https://github.com/mahmudul7608",
+    github: "https://github.com/mahmudul7608/ai-powered-idea-generator",
   },
   {
     title: "AI-powered-trip-planner",
@@ -2470,7 +2470,7 @@ const projects = ref([
     description: "AI trip planner with personalized itineraries, smart recommendations, and automated travel planning for perfect vacations",
     technologies: ["Nuxt.js", "TailwindCSS", "JavaScript","API"],
     live: "https://new-ai-trip-planner-web.netlify.app/",
-    github: "https://github.com/mahmudul7608",
+    github: "https://github.com/mahmudul7608/AI-Trip-Planner",
   },
   {
     title: "Online SaladMenu",
@@ -2479,7 +2479,7 @@ const projects = ref([
     description: "Interactive restaurant menu with dynamic ordering, real-time customization, and seamless food delivery integration",
     technologies: ["Nuxt.js", "TailwindCSS", "JavaScript","API"],
     live: "https://onlineorder-saladmenu.netlify.app/",
-    github: "https://github.com/mahmudul7608",
+    github: "https://github.com/mahmudul7608/Hotel-menu-salad-project",
   },
   {
     title: "5 Star Hotel Booking",
@@ -2488,7 +2488,7 @@ const projects = ref([
     description: "Professional hotel booking with elegant design, luxury accommodations, and premium reservation management system",
     technologies: ["Nuxt.js", "TailwindCSS", "API", "JavaScript"],
     live: "https://exquisite-kashata-37b72f.netlify.app/",
-    github: "https://github.com/mahmudul7608",
+    github: "https://github.com/mahmudul7608/Hotel-Lumiere",
   },
   {
     title: "AI-PoweredDesign",
@@ -2497,7 +2497,7 @@ const projects = ref([
     description: "Modern AI design showcase with stunning effects, cutting-edge animations, and futuristic visual experiences",
     technologies: ["Nuxt.js", "TailwindCSS", "JavaScript", "API"],
     live: "https://mh-ai-powered-design.netlify.app/",
-    github: "https://github.com/mahmudul7608",
+    github: "https://github.com/mahmudul7608/MH-AI-Powered-Design-System",
   },
 ]);
 
