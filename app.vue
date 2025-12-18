@@ -230,15 +230,19 @@
             class="relative w-28 h-28 rounded-full overflow-hidden border-4 border-purple-500 shadow-lg shadow-purple-700/30"
           >
             <img
-              src="/image/MH-Logo.jpg"
-              alt="Profile"
+              src="./public/image/mahmudul-hasan-frontend-developer.jpg"
+              alt="Mahmudul Hasan Frontend Developer"
               class="w-40 h-50 object-cover"
             />
           </div>
         </div>
 
         <!-- TEXTS -->
-        <h2 class="font-extrabold leading-tight">
+        <!-- SEO H1 - Hidden but present for search engines -->
+        <h1 class="sr-only">Mahmudul Hasan | web design and Developer</h1>
+        
+        <!-- Visual heading (keeps exact same design) -->
+        <div class="font-extrabold leading-tight" aria-hidden="true">
           <span
             class="text-3xl sm:text-5xl md:text-7xl bg-gradient-to-r from-pink-500 to-purple-500 text-transparent bg-clip-text block overflow-hidden animate-frontend"
           >
@@ -249,7 +253,7 @@
           >
             DEVELOPER
           </span>
-        </h2>
+        </div>
 
         <!-- Tagline -->
         <p
