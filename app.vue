@@ -2111,24 +2111,24 @@ import { Home, User, Brain, Folder, Code, Mail, Book } from "lucide-vue-next";
 
 // SEO Configuration
 useHead({
-  title: 'Mahmudul Hasan | Web Design and Developer',
+  title: 'Mahmudul Hasan | web designer and developer',
   meta: [
     { name: 'description', content: 'Portfolio of Mahmudul Hasan, a Frontend Developer specialized in Vue.js, Nuxt.js, and modern web design.' },
     { name: 'keywords', content: 'Mahmudul Hasan, Frontend Developer, Web Designer, Vue.js, Nuxt.js, React, Portfolio' },
     { name: 'author', content: 'Mahmudul Hasan' },
     // Open Graph / Facebook
     { property: 'og:type', content: 'website' },
-    { property: 'og:title', content: 'Mahmudul Hasan | Web Design and Developer' },
+    { property: 'og:title', content: 'Mahmudul Hasan | web designer and developer' },
     { property: 'og:description', content: 'Portfolio of Mahmudul Hasan, a Frontend Developer specialized in Vue.js, Nuxt.js, and modern web design.' },
-    { property: 'og:image', content: '/image/mahmudul-hasan-frontend-developer.jpg' },
+    { property: 'og:image', content: '/image/URL%20image.png' },
     // Twitter
     { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: 'Mahmudul Hasan | Web Design and Developer' },
+    { name: 'twitter:title', content: 'Mahmudul Hasan | web designer and developer' },
     { name: 'twitter:description', content: 'Portfolio of Mahmudul Hasan, a Frontend Developer specialized in Vue.js, Nuxt.js, and modern web design.' },
-    { name: 'twitter:image', content: '/image/mahmudul-hasan-frontend-developer.jpg' },
+    { name: 'twitter:image', content: '/image/URL%20image.png' },
   ],
   link: [
-    { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    { rel: 'icon', type: 'image/png', href: '/image/URL%20image.png' }
   ],
   script: [
     {
@@ -2139,7 +2139,7 @@ useHead({
         "name": "Mahmudul Hasan",
         "jobTitle": "Frontend Developer",
         "url": "https://mahmudul-hasan.vercel.app", 
-        "image": "https://mahmudul-hasan.vercel.app/image/mahmudul-hasan-frontend-developer.jpg",
+        "image": "https://mahmudul-hasan.vercel.app/image/URL%20image.png",
         "sameAs": [
           "https://www.linkedin.com/in/dev-mahmudul-hasan/",
           "https://github.com/mahmudul7608",
