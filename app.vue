@@ -2120,15 +2120,15 @@ useHead({
     { property: 'og:type', content: 'website' },
     { property: 'og:title', content: 'Mahmudul Hasan | web designer and developer' },
     { property: 'og:description', content: 'Portfolio of Mahmudul Hasan, a Frontend Developer specialized in Vue.js, Nuxt.js, and modern web design.' },
-    { property: 'og:image', content: '/image/URL%20image.png' },
+    { property: 'og:image', content: '/image/HM-image-1.png' },
     // Twitter
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:title', content: 'Mahmudul Hasan | web designer and developer' },
     { name: 'twitter:description', content: 'Portfolio of Mahmudul Hasan, a Frontend Developer specialized in Vue.js, Nuxt.js, and modern web design.' },
-    { name: 'twitter:image', content: '/image/URL%20image.png' },
+    { name: 'twitter:image', content: '/image/HM-image-1.png' },
   ],
   link: [
-    { rel: 'icon', type: 'image/png', href: '/image/URL%20image.png' }
+    { rel: 'icon', type: 'image/png', href: '/image/HM-image-1.png' }
   ],
   script: [
     {
@@ -2139,7 +2139,7 @@ useHead({
         "name": "Mahmudul Hasan",
         "jobTitle": "Frontend Developer",
         "url": "https://mahmudul-hasan.vercel.app", 
-        "image": "https://mahmudul-hasan.vercel.app/image/URL%20image.png",
+        "image": "https://mahmudul-hasan.vercel.app/image/HM-image-1.png",
         "sameAs": [
           "https://www.linkedin.com/in/dev-mahmudul-hasan/",
           "https://github.com/mahmudul7608",
