@@ -115,9 +115,9 @@ onMounted(() => {
         show.value = false;
         emit('boot-complete');
         document.body.style.overflow = "auto";
-      }, 500);
+      }, 200);
     }
-  }, 120);
+  }, 50);
 
   // Prevent scrolling during boot
   document.body.style.overflow = "hidden";

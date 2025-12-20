@@ -2109,6 +2109,52 @@
 import { ref, onMounted, onBeforeUnmount, computed } from "vue";
 import { Home, User, Brain, Folder, Code, Mail, Book } from "lucide-vue-next";
 
+// SEO Configuration
+useHead({
+  title: 'Mahmudul Hasan | Web Design and Developer',
+  meta: [
+    { name: 'description', content: 'Portfolio of Mahmudul Hasan, a Frontend Developer specialized in Vue.js, Nuxt.js, and modern web design.' },
+    { name: 'keywords', content: 'Mahmudul Hasan, Frontend Developer, Web Designer, Vue.js, Nuxt.js, React, Portfolio' },
+    { name: 'author', content: 'Mahmudul Hasan' },
+    // Open Graph / Facebook
+    { property: 'og:type', content: 'website' },
+    { property: 'og:title', content: 'Mahmudul Hasan | Web Design and Developer' },
+    { property: 'og:description', content: 'Portfolio of Mahmudul Hasan, a Frontend Developer specialized in Vue.js, Nuxt.js, and modern web design.' },
+    { property: 'og:image', content: '/image/mahmudul-hasan-frontend-developer.jpg' },
+    // Twitter
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: 'Mahmudul Hasan | Web Design and Developer' },
+    { name: 'twitter:description', content: 'Portfolio of Mahmudul Hasan, a Frontend Developer specialized in Vue.js, Nuxt.js, and modern web design.' },
+    { name: 'twitter:image', content: '/image/mahmudul-hasan-frontend-developer.jpg' },
+  ],
+  link: [
+    { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Mahmudul Hasan",
+        "jobTitle": "Frontend Developer",
+        "url": "https://mahmudul-hasan.vercel.app", 
+        "image": "https://mahmudul-hasan.vercel.app/image/mahmudul-hasan-frontend-developer.jpg",
+        "sameAs": [
+          "https://www.linkedin.com/in/dev-mahmudul-hasan/",
+          "https://github.com/mahmudul7608",
+          "https://www.instagram.com/mh_meraj07/"
+        ],
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Freelance"
+        },
+        "description": "Frontend Developer dedicated to crafting beautiful, responsive, and high-performance web experiences."
+      })
+    }
+  ]
+})
+
 // Boot loader state
 const bootComplete = ref(false);
 const onBootComplete = () => {
