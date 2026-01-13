@@ -4,7 +4,7 @@ Personal Portfolio Built with Nuxt 3
 A modern and responsive personal portfolio website, built with Nuxt.js 3 and Tailwind CSS.
 It highlights my skills, projects, and journey as a Frontend Developer.
 
-🔗 Live Preview: mh-portfolio01.netlify.app
+ Live Preview: mh-portfolio01.netlify.app
 
  Features
 
