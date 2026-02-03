@@ -27,6 +27,48 @@
       <aside
         class="hidden md:flex fixed top-1/2 right-6 -translate-y-1/2 z-40 flex-col items-center space-y-5 bg-gray-900/95 backdrop-blur-lg rounded-3xl p-4 shadow-2xl border border-white/20"
       >
+        <!-- 🔹 Circular Scroll Progress Indicator -->
+        <div class="relative w-16 h-16 mb-4">
+          <!-- Background Circle -->
+          <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+            <!-- Track -->
+            <circle
+              cx="50"
+              cy="50"
+              r="42"
+              fill="none"
+              stroke="rgba(255, 255, 255, 0.1)"
+              stroke-width="6"
+            />
+            <!-- Progress -->
+            <circle
+              cx="50"
+              cy="50"
+              r="42"
+              fill="none"
+              stroke="url(#scrollGradient)"
+              stroke-width="6"
+              stroke-linecap="round"
+              :stroke-dasharray="'264'"
+              :stroke-dashoffset="264 - (264 * scrollProgress) / 100"
+              class="transition-all duration-300 ease-out"
+              style="filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.6));"
+            />
+            <!-- Gradient Definition -->
+            <defs>
+              <linearGradient id="scrollGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#a855f7;stop-opacity:1" />
+                <stop offset="50%" style="stop-color:#ec4899;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <!-- Percentage Text -->
+          <div class="absolute inset-0 flex items-center justify-center">
+            <span class="text-xs font-bold text-white">{{ Math.round(scrollProgress) }}%</span>
+          </div>
+        </div>
+
         <!-- 🔹 Navigation Icons -->
         <div class="flex flex-col items-center space-y-3">
           <div v-for="item in navItems" :key="item.href" class="relative group">
@@ -2111,7 +2153,7 @@
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount, computed } from "vue";
-import { Home, User, Brain, Folder, Code, Mail, Book } from "lucide-vue-next";
+import { Home, User, Brain, Folder, Code, Mail } from "lucide-vue-next";
 
 // SEO Configuration
 useHead({
@@ -2245,7 +2287,6 @@ const navItems = [
   { href: "#skills", label: "Skills", icon: Brain },
   { href: "#about", label: "About", icon: User },
   { href: "#contact-me", label: "Contact", icon: Mail },
-  { href: "#footer", label: "Footer", icon: Book },
 ];
 
 const activeSection = ref("#intro");
