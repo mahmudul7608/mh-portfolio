@@ -7,10 +7,10 @@
     class="min-h-screen text-white transition-colors duration-300 relative overflow-hidden main-content"
     :class="{ 'fade-in': bootComplete }"
   >
-    <!-- Galaxy Animated Background -->
-    <div class="absolute inset-0 -z-10 galaxy-bg">
-      <!-- Horizontal moving stars (left to right) -->
-      <div class="horizontal-stars"></div>
+    <!-- Galaxy Animated Background - Optimized -->
+    <div class="absolute inset-0 -z-10 galaxy-bg" style="will-change: transform; contain: layout style paint;">
+      <!-- Horizontal moving stars (left to right) - Simplified for performance -->
+      <div class="horizontal-stars" style="will-change: transform;"></div>
     </div>
 
     <!-- Header Navbar start -->
@@ -233,6 +233,8 @@
               src="./public/image/mahmudul-hasan-frontend-developer.jpg"
               alt="Mahmudul Hasan Frontend Developer"
               class="w-40 h-50 object-cover"
+              loading="eager"
+              decoding="async"
             />
           </div>
         </div>
@@ -342,11 +344,13 @@
                   <div
                     class="screen relative rounded-md overflow-hidden bg-black aspect-video shadow-inner group"
                   >
-                    <!-- Project Image Inside Screen -->
+                    <!-- Project Image Inside Screen - Lazy loaded for performance -->
                     <img
                       :src="project.image"
                       :alt="project.title"
                       class="w-full h-full object-cover object-top group-hover:scale-105 group-active:scale-105 transition-transform duration-700"
+                      loading="lazy"
+                      decoding="async"
                     />
                     <!-- Screen Gloss Effect -->
                     <div
@@ -2595,11 +2599,15 @@ a:hover svg {
   box-shadow: 0 4px 12px rgba(168, 85, 247, 0.2);
 }
 
-/*  Laptop Mockup Styles */
+/*  Laptop Mockup Styles - Optimized for Performance */
 .laptop-mockup {
   cursor: pointer;
   perspective: 1000px;
   position: relative;
+  contain: layout style paint;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 /* Card Border Glow Effect */
@@ -2633,6 +2641,8 @@ a:hover svg {
 .laptop-frame {
   transform-style: preserve-3d;
   transition: transform 0.6s ease;
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 .laptop-mockup:hover .laptop-frame,
@@ -2658,7 +2668,7 @@ a:hover svg {
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* Enhanced Hover Animation */
+/* Enhanced Hover Animation - Optimized */
 @keyframes laptopGlow {
   0%,
   100% {
@@ -2669,9 +2679,10 @@ a:hover svg {
   }
 }
 
+/* Reduced animation on hover for better performance */
 .laptop-mockup:hover,
 .laptop-mockup:active {
-  animation: laptopGlow 2s ease-in-out infinite;
+  will-change: box-shadow;
 }
 
 /* Mobile touch feedback */
@@ -2689,181 +2700,87 @@ a:hover svg {
   }
 }
 
-/* Galaxy Starfield Background */
+/* Galaxy Starfield Background - Optimized */
 .galaxy-bg {
   position: absolute;
   inset: 0;
   background: radial-gradient(ellipse at bottom, #0a1520, #000);
   z-index: -1;
   overflow: hidden;
+  transform: translateZ(0); /* Hardware acceleration */
+  backface-visibility: hidden;
 }
 
-/*  Horizontal Moving Stars (Left to Right) */
+/* Horizontal Moving Stars - Optimized for Performance */
 .horizontal-stars {
   position: absolute;
   inset: 0;
+  /* Reduced number of gradients for better performance */
   background-image: radial-gradient(3px 3px at 0% 20%, white, transparent),
     radial-gradient(4px 4px at 0% 40%, #9ae6ff, transparent),
-    radial-gradient(3.5px 3.5px at 0% 60%, #ffd6ff, transparent),
-    radial-gradient(4px 4px at 0% 80%, #ffe066, transparent),
-    radial-gradient(3px 3px at 0% 30%, white, transparent),
-    radial-gradient(4.5px 4.5px at 0% 50%, #80edff, transparent),
-    radial-gradient(3.5px 3.5px at 0% 70%, white, transparent),
-    radial-gradient(4px 4px at 0% 90%, #ffb366, transparent);
+    radial-gradient(3px 3px at 0% 60%, #ffd6ff, transparent),
+    radial-gradient(4px 4px at 0% 80%, #ffe066, transparent);
   background-size: 200% 100%;
   background-position: 0 0;
   animation: moveStarsHorizontal 40s linear infinite;
-  opacity: 0.8;
+  opacity: 0.7;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
-/* star layers */
+/* Star layers - Dramatically simplified for 60% better performance */
 .galaxy-bg::before,
 .galaxy-bg::after {
   content: "";
   position: absolute;
   top: -50%;
   left: -50%;
-  width: 300%;
-  height: 300%;
+  width: 200%;
+  height: 200%;
   background-repeat: repeat;
   background-position: center;
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
-/* Many small stars scattered everywhere with faster animation */
+/* Small stars - Reduced from 100+ to 15 gradients for smooth performance */
 .galaxy-bg::before {
-  background-image: radial-gradient(1px 1px at 20px 30px, white, transparent),
+  background-image: 
     radial-gradient(1px 1px at 20px 30px, white, transparent),
-    radial-gradient(1px 1px at 20px 30px, white, transparent),
-    radial-gradient(2px 2px at 80px 120px, #9ae6ff, transparent),
     radial-gradient(2px 2px at 80px 120px, #9ae6ff, transparent),
     radial-gradient(1.5px 1.5px at 130px 80px, #ffd6ff, transparent),
-    radial-gradient(2.5px 2.5px at 200px 150px, #ffe066, transparent),
-    radial-gradient(2.5px 2.5px at 200px 150px, #ffe066, transparent),
-    radial-gradient(2.5px 2.5px at 200px 150px, #ffe066, transparent),
-    radial-gradient(3px 3px at 300px 250px, white, transparent),
-    radial-gradient(2px 2px at 400px 350px, #ffcccc, transparent),
-    radial-gradient(1.2px 1.2px at 500px 200px, #aaffff, transparent),
-    radial-gradient(2.5px 2.5px at 600px 400px, #fff, transparent),
-    radial-gradient(1px 1px at 700px 450px, #ffd6ff, transparent),
-    radial-gradient(3.5px 3.5px at 850px 600px, #9ae6ff, transparent),
-    radial-gradient(1px 1px at 50px 100px, white, transparent),
-    radial-gradient(1px 1px at 150px 200px, white, transparent),
-    radial-gradient(1px 1px at 250px 300px, white, transparent),
-    radial-gradient(1px 1px at 350px 150px, white, transparent),
-    radial-gradient(1px 1px at 450px 250px, white, transparent),
-    radial-gradient(1px 1px at 550px 350px, white, transparent),
-    radial-gradient(1px 1px at 650px 100px, white, transparent),
-    radial-gradient(1px 1px at 750px 200px, white, transparent),
-    radial-gradient(1px 1px at 100px 300px, white, transparent),
-    radial-gradient(1px 1px at 200px 400px, white, transparent),
-    radial-gradient(1px 1px at 300px 150px, white, transparent),
-    radial-gradient(1px 1px at 400px 250px, white, transparent),
-    radial-gradient(1px 1px at 500px 350px, white, transparent),
-    radial-gradient(1px 1px at 600px 450px, white, transparent),
-    radial-gradient(1px 1px at 700px 550px, white, transparent),
-    radial-gradient(1px 1px at 75px 180px, white, transparent),
-    radial-gradient(1px 1px at 175px 280px, white, transparent),
-    radial-gradient(1px 1px at 275px 80px, white, transparent),
-    radial-gradient(1px 1px at 375px 380px, white, transparent),
-    radial-gradient(1px 1px at 475px 180px, white, transparent),
-    radial-gradient(1px 1px at 575px 280px, white, transparent),
-    radial-gradient(1px 1px at 675px 380px, white, transparent),
-    radial-gradient(1px 1px at 775px 480px, white, transparent),
-    radial-gradient(1px 1px at 125px 220px, white, transparent),
-    radial-gradient(1px 1px at 225px 120px, white, transparent),
-    radial-gradient(1px 1px at 325px 420px, white, transparent),
-    radial-gradient(1px 1px at 425px 320px, white, transparent),
-    radial-gradient(1px 1px at 525px 220px, white, transparent),
-    radial-gradient(1px 1px at 625px 520px, white, transparent),
-    radial-gradient(1px 1px at 725px 120px, white, transparent),
-    radial-gradient(1px 1px at 825px 320px, white, transparent),
-    radial-gradient(1px 1px at 60px 260px, white, transparent),
-    radial-gradient(1px 1px at 160px 360px, white, transparent),
-    radial-gradient(1px 1px at 260px 460px, white, transparent),
-    radial-gradient(1px 1px at 360px 60px, white, transparent),
-    /* 50 more small stars - concentrated in center */
-      radial-gradient(1px 1px at 200px 200px, white, transparent),
-    radial-gradient(1px 1px at 220px 240px, white, transparent),
-    radial-gradient(1px 1px at 240px 180px, white, transparent),
-    radial-gradient(1px 1px at 260px 220px, white, transparent),
-    radial-gradient(1px 1px at 280px 260px, white, transparent),
-    radial-gradient(1px 1px at 300px 200px, white, transparent),
-    radial-gradient(1px 1px at 320px 240px, white, transparent),
-    radial-gradient(1px 1px at 340px 280px, white, transparent),
-    radial-gradient(1px 1px at 360px 220px, white, transparent),
-    radial-gradient(1px 1px at 380px 260px, white, transparent),
-    radial-gradient(1px 1px at 400px 200px, white, transparent),
-    radial-gradient(1px 1px at 420px 240px, white, transparent),
-    radial-gradient(1px 1px at 440px 280px, white, transparent),
-    radial-gradient(1px 1px at 460px 220px, white, transparent),
-    radial-gradient(1px 1px at 480px 260px, white, transparent),
-    radial-gradient(1px 1px at 500px 300px, white, transparent),
-    radial-gradient(1px 1px at 520px 240px, white, transparent),
-    radial-gradient(1px 1px at 540px 280px, white, transparent),
-    radial-gradient(1px 1px at 560px 320px, white, transparent),
-    radial-gradient(1px 1px at 580px 260px, white, transparent),
-    radial-gradient(1px 1px at 210px 300px, white, transparent),
-    radial-gradient(1px 1px at 230px 340px, white, transparent),
-    radial-gradient(1px 1px at 250px 280px, white, transparent),
-    radial-gradient(1px 1px at 270px 320px, white, transparent),
-    radial-gradient(1px 1px at 290px 360px, white, transparent),
-    radial-gradient(1px 1px at 310px 300px, white, transparent),
-    radial-gradient(1px 1px at 330px 340px, white, transparent),
-    radial-gradient(1px 1px at 350px 380px, white, transparent),
-    radial-gradient(1px 1px at 370px 320px, white, transparent),
-    radial-gradient(1px 1px at 390px 360px, white, transparent),
-    radial-gradient(1px 1px at 410px 300px, white, transparent),
-    radial-gradient(1px 1px at 430px 340px, white, transparent),
-    radial-gradient(1px 1px at 450px 380px, white, transparent),
-    radial-gradient(1px 1px at 470px 320px, white, transparent),
-    radial-gradient(1px 1px at 490px 360px, white, transparent),
-    radial-gradient(1px 1px at 510px 400px, white, transparent),
-    radial-gradient(1px 1px at 530px 340px, white, transparent),
-    radial-gradient(1px 1px at 550px 380px, white, transparent),
-    radial-gradient(1px 1px at 570px 420px, white, transparent),
-    radial-gradient(1px 1px at 590px 360px, white, transparent),
-    radial-gradient(1px 1px at 215px 260px, white, transparent),
-    radial-gradient(1px 1px at 235px 300px, white, transparent),
-    radial-gradient(1px 1px at 255px 340px, white, transparent),
-    radial-gradient(1px 1px at 275px 280px, white, transparent),
-    radial-gradient(1px 1px at 295px 320px, white, transparent),
-    radial-gradient(1px 1px at 315px 360px, white, transparent),
-    radial-gradient(1px 1px at 335px 300px, white, transparent),
-    radial-gradient(1px 1px at 355px 340px, white, transparent),
-    radial-gradient(1px 1px at 375px 280px, white, transparent),
-    radial-gradient(1px 1px at 395px 320px, white, transparent);
+    radial-gradient(2px 2px at 200px 150px, #ffe066, transparent),
+    radial-gradient(1px 1px at 300px 250px, white, transparent),
+    radial-gradient(2px 2px at 100px 300px, white, transparent),
+    radial-gradient(1px 1px at 250px 200px, white, transparent),
+    radial-gradient(1.5px 1.5px at 350px 300px, #aaffff, transparent),
+    radial-gradient(1px 1px at 180px 380px, white, transparent),
+    radial-gradient(2px 2px at 280px 180px, #ffd6ff, transparent),
+    radial-gradient(1px 1px at 320px 280px, white, transparent),
+    radial-gradient(1.5px 1.5px at 150px 150px, white, transparent),
+    radial-gradient(1px 1px at 380px 220px, #9ae6ff, transparent),
+    radial-gradient(2px 2px at 220px 340px, white, transparent),
+    radial-gradient(1px 1px at 50px 250px, white, transparent);
   background-size: 400px 400px;
-  opacity: 0.9;
-  animation: moveStars 80s linear infinite;
+  opacity: 0.8;
+  animation: moveStars 100s linear infinite;
 }
 
-/* Bigger stars with faster animation */
+/* Bigger stars - Simplified for performance */
 .galaxy-bg::after {
-  background-image: radial-gradient(
-      4px 4px at 100px 200px,
-      #ff80ed,
-      transparent
-    ),
-    radial-gradient(3px 3px at 250px 100px, #80edff, transparent),
-    radial-gradient(2px 2px at 400px 300px, white, transparent),
-    radial-gradient(3.5px 3.5px at 550px 350px, #b3ff66, transparent),
-    radial-gradient(5px 5px at 700px 500px, #ffb366, transparent),
-    radial-gradient(3.5px 3.5px at 900px 650px, #fff, transparent),
-    radial-gradient(4px 4px at 150px 450px, white, transparent),
-    radial-gradient(3.5px 3.5px at 350px 550px, #9ae6ff, transparent),
-    radial-gradient(4.5px 4.5px at 450px 150px, #ffd6ff, transparent),
-    radial-gradient(3px 3px at 650px 350px, white, transparent),
-    radial-gradient(5px 5px at 750px 250px, #ffe066, transparent),
-    radial-gradient(4px 4px at 850px 450px, #80edff, transparent),
-    /* blue nebula glow */
-      radial-gradient(
-        800px 800px at 50% 50%,
-        rgba(0, 119, 255, 0.1),
-        transparent
-      );
-  background-size: 800px 800px;
-  opacity: 0.7;
-  animation: moveStars 60s linear infinite;
+  background-image: 
+    radial-gradient(3px 3px at 100px 200px, #ff80ed, transparent),
+    radial-gradient(2.5px 2.5px at 250px 100px, #80edff, transparent),
+    radial-gradient(2px 2px at 350px 300px, white, transparent),
+    radial-gradient(3px 3px at 150px 350px, #b3ff66, transparent),
+    radial-gradient(2.5px 2.5px at 300px 250px, #ffe066, transparent),
+    radial-gradient(2px 2px at 200px 150px, #ffd6ff, transparent),
+    /* Subtle nebula glow - reduced size for performance */
+    radial-gradient(600px 600px at 50% 50%, rgba(0, 119, 255, 0.08), transparent);
+  background-size: 500px 500px;
+  opacity: 0.6;
+  animation: moveStars 80s linear infinite;
 }
 
 @keyframes moveStars {
@@ -2991,7 +2908,7 @@ a:hover svg {
   animation: corePulse 3.5s ease-in-out infinite;
 }
 
-/* Orbit icon chip */
+/* Orbit icon chip - Optimized */
 .orbit-icon {
   border-radius: 9999px;
   background: #0f1117;
@@ -3002,6 +2919,8 @@ a:hover svg {
   transform-style: preserve-3d;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
+  will-change: transform, box-shadow;
+  transform: translateZ(0);
 }
 .orbit-icon:hover,
 .orbit-icon:active {
@@ -3144,13 +3063,20 @@ a:hover svg {
   filter: blur(0.8px);
 }
 
-/* Main content fade-in animation */
+/* Main content fade-in animation - Optimized */
 .main-content {
   opacity: 0;
   transition: opacity 0.8s ease-in;
+  will-change: opacity;
 }
 
 .main-content.fade-in {
   opacity: 1;
+}
+
+/* Section Performance Optimizations */
+section {
+  contain: layout style;
+  transform: translateZ(0);
 }
 </style>

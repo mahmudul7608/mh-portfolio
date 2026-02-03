@@ -103,6 +103,7 @@ const emit = defineEmits(['boot-complete']);
 
 onMounted(() => {
   let i = 0;
+  // Slower interval for better readability
   const interval = setInterval(() => {
     if (i < lines.length) {
       visibleLines.value.push(lines[i]);
@@ -111,13 +112,14 @@ onMounted(() => {
     } else {
       clearInterval(interval);
 
+      // Delay to show completion state before transitioning
       setTimeout(() => {
         show.value = false;
         emit('boot-complete');
         document.body.style.overflow = "auto";
-      }, 200);
+      }, 800);
     }
-  }, 50);
+  }, 250); // Slower animation for better readability - each line displays every 250ms
 
   // Prevent scrolling during boot
   document.body.style.overflow = "hidden";
