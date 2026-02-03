@@ -25,34 +25,34 @@
 
       <!-- Desktop Right Sidebar Navbar -->
       <aside
-        class="hidden md:flex fixed top-1/2 right-6 -translate-y-1/2 z-40 flex-col items-center space-y-5 bg-gray-900/95 backdrop-blur-lg rounded-3xl p-4 shadow-2xl border border-white/20"
+        class="hidden md:flex fixed top-1/2 right-6 -translate-y-1/2 z-40 flex-col items-center bg-gray-900/90 backdrop-blur-lg rounded-[1.5rem] py-4 px-3 shadow-2xl border border-white/10"
       >
         <!-- 🔹 Circular Scroll Progress Indicator -->
-        <div class="relative w-16 h-16 mb-4">
+        <div class="relative w-11 h-11 mb-2">
           <!-- Background Circle -->
           <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
             <!-- Track -->
             <circle
               cx="50"
               cy="50"
-              r="42"
+              r="40"
               fill="none"
-              stroke="rgba(255, 255, 255, 0.1)"
+              stroke="rgba(255, 255, 255, 0.06)"
               stroke-width="6"
             />
             <!-- Progress -->
             <circle
               cx="50"
               cy="50"
-              r="42"
+              r="40"
               fill="none"
               stroke="url(#scrollGradient)"
               stroke-width="6"
               stroke-linecap="round"
-              :stroke-dasharray="'264'"
-              :stroke-dashoffset="264 - (264 * scrollProgress) / 100"
+              :stroke-dasharray="'251'"
+              :stroke-dashoffset="251 - (251 * scrollProgress) / 100"
               class="transition-all duration-300 ease-out"
-              style="filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.6));"
+              style="filter: drop-shadow(0 0 4px rgba(168, 85, 247, 0.4));"
             />
             <!-- Gradient Definition -->
             <defs>
@@ -65,30 +65,27 @@
           </svg>
           <!-- Percentage Text -->
           <div class="absolute inset-0 flex items-center justify-center">
-            <span class="text-xs font-bold text-white">{{ Math.round(scrollProgress) }}%</span>
+            <span class="text-[9px] font-semibold text-white/80">{{ Math.round(scrollProgress) }}%</span>
           </div>
         </div>
 
+        <!-- Subtle Divider -->
+        <div class="w-6 h-[1px] bg-white/10 rounded-full mb-2"></div>
+
         <!-- 🔹 Navigation Icons -->
-        <div class="flex flex-col items-center space-y-3">
+        <div class="flex flex-col items-center space-y-2">
           <div v-for="item in navItems" :key="item.href" class="relative group">
             <!-- Tooltip -->
             <span
-              class="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-800 text-white text-xs px-3 py-1 rounded-md opacity-0 group-hover:opacity-100 group-hover:translate-x-0 -translate-x-2 transition-all duration-300 pointer-events-none whitespace-nowrap shadow-lg"
+              class="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-800/95 backdrop-blur-sm text-white text-[11px] px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 group-hover:translate-x-0 -translate-x-2 transition-all duration-300 pointer-events-none whitespace-nowrap shadow-lg border border-white/10"
             >
               {{ item.label }}
             </span>
 
-            <!-- Icon -->
+            <!-- Icon Button -->
             <a
               :href="item.href"
-              class="p-3 rounded-full flex items-center justify-center shadow-md transition-all duration-300 bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:scale-110 active:scale-110 cursor-pointer"
-              :class="[
-                activeSection === item.href
-                  ? activeColor(item.label) +
-                    ' text-white scale-110 shadow-lg ring-2 ring-white/30'
-                  : '',
-              ]"
+              class="w-11 h-11 rounded-full flex items-center justify-center bg-gray-800/60 backdrop-blur-sm text-gray-400 border border-white/5 shadow-sm transition-all duration-300 cursor-pointer hover:bg-gray-700/70 hover:text-white hover:border-white/10 hover:shadow-md hover:scale-110 active:scale-95"
             >
               <component :is="item.icon" class="w-5 h-5" />
             </a>
