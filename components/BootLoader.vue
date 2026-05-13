@@ -128,7 +128,7 @@ onMounted(() => {
 
 <style scoped>
 .boot-loader {
-  animation: fadeIn 0.6s ease-in;
+  animation: fadeIn 0.2s ease-in;
 }
 
 @keyframes fadeIn {
